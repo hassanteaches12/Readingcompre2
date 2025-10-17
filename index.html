@@ -58,104 +58,507 @@
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="logo" aria-hidden="true">
-      <svg width="52" height="52" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="6" width="58" height="44" rx="8" fill="#fff7ea" stroke="#ead7bb" />
-        <path d="M10 36c10 6 30 6 44 0" stroke="#c77a2a" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M24 18 L32 10 L40 18" stroke="#0b6b8a" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div>
-      <h1>Reading Comprehension Practice 2 — Chapter 7: Bahlol</h1>
-      <p class="lead">Grade 5 — Short-answer format. Each question carries 1 mark.</p>
-    </div>
-  </header>
+  <div class="wrap" role="main" aria-labelledby="title">
+    <header>
+      <div class="logo" aria-hidden="true">
+        <svg width="52" height="52" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="6" width="58" height="44" rx="8" fill="#fff7ea" stroke="#ead7bb" />
+          <path d="M10 36c10 6 30 6 44 0" stroke="#c77a2a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M24 18 L32 10 L40 18" stroke="#0b6b8a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1 id="title">Reading Comprehension Practice 2 — Chapter 7: Bahlol</h1>
+        <p class="lead">Grade 5 — Short-answer format. Read carefully and answer. Each question carries 1 mark (total 6).</p>
+      </div>
+    </header>
 
-  <!-- student info -->
-  <section class="card">
-    <h2>Student Information</h2>
-    <div class="info-row">
-      <div class="info-box"><label>Full Name</label><input type="text" id="st-name"></div>
-      <div class="info-box"><label>Class</label><input type="text" id="st-class"></div>
-      <div class="info-box"><label>Section</label><input type="text" id="st-section"></div>
-      <div class="info-box"><label>Roll No.</label><input type="text" id="st-roll"></div>
-    </div>
-  </section>
+    <!-- student info -->
+    <section class="card" aria-labelledby="studentinfo">
+      <h2 id="studentinfo" style="margin:0;font-size:16px">Student Information</h2>
+      <div class="small" style="margin-top:6px">Enter required details. These appear on the printable report.</div>
 
-  <!-- passage -->
-  <section class="card">
-    <h2>Passage — Chapter 7: Bahlol</h2>
-    <div class="passage">
-      <em>
-      Late one afternoon, the area councillor and his wife called to see me. They made no sign of wanting to leave but sat and talked as the dusk turned into night. I thought I had better offer them some supper, but I doubted whether we had anything suitable in the pantry. I excused myself and went into the kitchen. In the pantry cupboard, I found an old tin without a label. “What is this, Bahlol?” I asked. “No label, madam. I don’t know,” came the brief reply. “Open it and see. We shall have it for supper. But give some to the chickens first. If they are all right, then we shall know the food has not gone bad,” I said. Bahlol served the meal, and then hovered about, listening to the conversation. We were having a pleasant chat after our meal, when Bahlol burst into the room. “Madam, madam! The chickens!” wailed Bahlol. “What’s the matter? What about the chickens?” I said with some alarm. I looked at the empty plates and stood up, glancing nervously at my guests. “They are dead, madam!” cried the cook, wringing his hands.
-      </em>
-    </div>
-  </section>
-
-  <!-- questions -->
-  <section class="card">
-    <h2>Questions (1 Mark Each)</h2>
-    <form id="quizForm" onsubmit="return false;">
-      <div class="question"><div class="q-title">Q1. Give a suitable title for the passage.</div><textarea class="answer" id="a1"></textarea></div>
-      <div class="question"><div class="q-title">Q2. Why did the narrator feel it was necessary to offer the guests supper?</div><textarea class="answer" id="a2"></textarea></div>
-      <div class="question"><div class="q-title">Q3. What was unusual about the tin the narrator found in the pantry cupboard?</div><textarea class="answer" id="a3"></textarea></div>
-      <div class="question"><div class="q-title">Q4. What key instruction did the narrator give Bahlol regarding testing the food?</div><textarea class="answer" id="a4"></textarea></div>
-      <div class="question"><div class="q-title">Q5. What happened to the chickens, according to Bahlol?</div><textarea class="answer" id="a5"></textarea></div>
-      <div class="question"><div class="q-title">Q6. If you had just finished eating the supper and heard Bahlol cry out that the chickens were dead, how would you react?</div><textarea class="answer" id="a6"></textarea></div>
-
-      <div class="actions">
-        <button class="btn" onclick="gradeAndShow()">Submit Answers</button>
-        <button class="btn secondary" onclick="clearAll()" type="button">Clear</button>
-        <div class="score-box">
-          <div id="scoredisp" class="result"></div>
-          <div id="percentdisp" class="percent"></div>
+      <div class="info-row" style="margin-top:12px">
+        <div class="info-box">
+          <label for="st-name">Full name</label>
+          <input type="text" id="st-name" aria-required="true" />
+        </div>
+        <div class="info-box">
+          <label for="st-class">Class</label>
+          <input type="text" id="st-class" aria-required="true" />
+        </div>
+        <div class="info-box">
+          <label for="st-section">Section</label>
+          <input type="text" id="st-section" aria-required="true" />
+        </div>
+        <div class="info-box">
+          <label for="st-roll">Roll number</label>
+          <input type="text" id="st-roll" aria-required="true" />
         </div>
       </div>
-    </form>
-    <div id="afterSubmit" class="hidden" style="margin-top:14px">
-      <div class="note">Download a formal PDF report with your answers and key.</div>
-      <div style="margin-top:10px;display:flex;gap:10px;">
-        <button class="btn" id="downloadPdfBtn" onclick="downloadPDFReport()">Download PDF</button>
-        <button class="btn secondary" onclick="window.location.reload()">Start New</button>
+      <div class="note">Partial marks are awarded where appropriate — see teacher report for breakdown.</div>
+    </section>
+
+    <!-- passage -->
+    <section class="card" aria-labelledby="passageheading">
+      <h2 id="passageheading" style="margin:0;font-size:16px">Passage — Chapter 7: Bahlol</h2>
+      <div class="small" style="margin-top:6px">Read the passage carefully before answering.</div>
+      <div class="passage" style="margin-top:10px">
+        <em>
+        Late one afternoon, the area councillor and his wife called to see me. They made no sign of wanting to leave but sat and talked as the dusk turned into night. I thought I had better offer them some supper, but I doubted whether we had anything suitable in the pantry. I excused myself and went into the kitchen. In the pantry cupboard, I found an old tin without a label. 'What is this, Bahlol?' I asked. 'No label, madam. I don't know,' came the brief reply. 'Open it and see. We shall have it for supper. But give some to the chickens first. If they are all right, then we shall know the food has not gone bad,' I said. Bahlol served the meal, and then hovered about, listening to the conversation. We were having a pleasant chat after our meal, when Bahlol burst into the room. 'Madam, madam! The chickens!' wailed Bahlol. 'What's the matter? What about the chickens?' I said with some alarm. I looked at the empty plates and stood up, glancing nervously at my guests. 'They are dead, madam!' cried the cook, wringing his hands.
+        </em>
       </div>
-    </div>
-  </section>
-</div>
+    </section>
+
+    <!-- questions -->
+    <section id="questions" class="card" aria-labelledby="qheading">
+      <h2 id="qheading" style="margin:0;font-size:16px">Questions</h2>
+      <div class="small" style="margin-top:6px">Type your answers in the boxes below. Each question is 1 mark; partial credit possible.</div>
+
+      <form id="quizForm" onsubmit="return false;" style="margin-top:12px">
+        <!-- Q1 -->
+        <div class="question" data-qid="q1">
+          <div class="q-title">Q1. Give a suitable title for the passage. (1 Mark)</div>
+          <textarea class="answer" id="a1" aria-label="Answer to question 1"></textarea>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question" data-qid="q2">
+          <div class="q-title">Q2. Why did the narrator feel it was necessary to offer the guests supper? (1 Mark)</div>
+          <textarea class="answer" id="a2" aria-label="Answer to question 2"></textarea>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question" data-qid="q3">
+          <div class="q-title">Q3. What was unusual about the tin the narrator found in the pantry cupboard? (1 Mark)</div>
+          <textarea class="answer" id="a3" aria-label="Answer to question 3"></textarea>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question" data-qid="q4">
+          <div class="q-title">Q4. What key instruction did the narrator give Bahlol regarding testing the food? (1 Mark)</div>
+          <textarea class="answer" id="a4" aria-label="Answer to question 4"></textarea>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question" data-qid="q5">
+          <div class="q-title">Q5. What happened to the chickens, according to Bahlol? (1 Mark)</div>
+          <textarea class="answer" id="a5" aria-label="Answer to question 5"></textarea>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question" data-qid="q6">
+          <div class="q-title">Q6. If you had just finished eating the supper and heard Bahlol cry out that the chickens were dead, how would you react? (1 Mark)</div>
+          <textarea class="answer" id="a6" aria-label="Answer to question 6"></textarea>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="submitBtn" onclick="gradeAndShow()">Submit Answers</button>
+          <button class="btn secondary" id="clearBtn" onclick="clearAll()" type="button">Clear answers</button>
+          <div class="score-box" aria-live="polite">
+            <div id="scoredisp" class="result"></div>
+            <div id="percentdisp" class="percent"></div>
+          </div>
+        </div>
+      </form>
+
+      <!-- after submit -->
+      <div id="afterSubmit" class="hidden" style="margin-top:14px">
+        <div class="note">You may download a formal report (PDF) that contains your answers, the official correct answers, and the detailed marking breakdown for teacher review.</div>
+        <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+          <button class="btn" id="downloadPdfBtn" onclick="downloadPDFReport()">Download Results (PDF)</button>
+          <button class="btn secondary" onclick="window.location.reload()">Start New / Refresh</button>
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      <small>Local auto-grader: teachers should review long/ambiguous responses before recording official marks.</small>
+    </footer>
+  </div>
 
 <script>
+/* ---------- Utilities (normalization & fuzzy matching) ---------- */
 function normalize(s){ return String(s||'').trim().toLowerCase(); }
-function fuzzy(ans,t){return normalize(ans).includes(normalize(t));}
+
+// Levenshtein distance for tolerant fuzzy checks (used sparingly)
+function levenshtein(a,b){
+  a=String(a||''); b=String(b||'');
+  if(a===b) return 0;
+  const m=a.length, n=b.length;
+  if(m===0) return n;
+  if(n===0) return m;
+  const dp = Array(m+1).fill(0).map((_,i)=>i);
+  for(let j=1;j<=n;j++){
+    let prev = dp[0];
+    dp[0] = j;
+    for(let i=1;i<=m;i++){
+      let cur = dp[i];
+      const cost = a[i-1] === b[j-1] ? 0 : 1;
+      dp[i] = Math.min(dp[i] + 1, dp[i-1] + 1, prev + cost);
+      prev = cur;
+    }
+  }
+  return dp[m];
+}
+
+function fuzzyContains(ans, phrase){
+  if(!ans || !phrase) return false;
+  ans = normalize(ans);
+  phrase = normalize(phrase);
+  if(ans.includes(phrase)) return true;
+  // tolerate small typos
+  if(levenshtein(ans, phrase) <= 2) return true;
+  return false;
+}
+
+/* ---------- KEY + Grading Rules (matches your Answer Key & Criteria) ---------- */
+const KEY = {
+  q1: {
+    accepted: [
+      'dinner trouble', 'the dead chickens', 'testing the food', "the cook’s warning",
+      'the cook\'s warning', 'the dead chickens', 'dead chickens', 'bahlol the cook',
+      'the chickens', 'chicken trouble', 'the unlabeled tin', 'the tin'
+    ],
+    keywords: ['dinner','dead','chickens','bahlol','cook','tin','unlabeled','label','supper','test','warning']
+  },
+  q2: {
+    // Must mention both parts for full mark: 1) guests stayed late / dusk->night AND 2) they made no sign of leaving
+    parts: {
+      stayedLate: ['dusk','night','late','stayed'],
+      noSignLeaving: ['no sign of wanting to leave','did not want to leave','did not want to go','showed no sign of leaving','stayed and talked']
+    }
+  },
+  q3: {
+    // Unusual: old tin without a label - exact idea needed
+    acceptedPhrases: ['no label','without a label','unlabelled','unlabeled','no label on it','no label on the tin','no tag']
+  },
+  q4: {
+    // Key instruction: give some to the chickens first to test it
+    acceptedPhrases: ['give some to the chickens','feed the chickens','give to the chickens first','feed to the chickens','try on the chickens first','test on the chickens']
+  },
+  q5: {
+    acceptedPhrases: ['they are dead','dead','the chickens died','the chickens are dead']
+  },
+  q6: {
+    // Accept any logical reaction showing alarm, concern, or action; prefer more specific answers for full mark
+    acceptAny: true
+  }
+};
+
+/* ---------- Grading Implementation ---------- */
 function gradeAndShow(){
-  const name=document.getElementById('st-name').value.trim();
-  if(!name){alert("Enter student info first.");return;}
-  const a1=normalize(a1El.value=document.getElementById('a1').value);
-  const a2=normalize(document.getElementById('a2').value);
-  const a3=normalize(document.getElementById('a3').value);
-  const a4=normalize(document.getElementById('a4').value);
-  const a5=normalize(document.getElementById('a5').value);
-  const a6=normalize(document.getElementById('a6').value);
-  let score=0;
+  // validate student info
+  const name = document.getElementById('st-name').value.trim();
+  const clas = document.getElementById('st-class').value.trim();
+  const section = document.getElementById('st-section').value.trim();
+  const roll = document.getElementById('st-roll').value.trim();
+  if(!name || !clas || !section || !roll){
+    alert('Please fill Name, Class, Section and Roll number before submitting.');
+    return;
+  }
 
-  if(fuzzy(a1,"dead")||fuzzy(a1,"chicken")||fuzzy(a1,"food"))score+=1;
-  if(fuzzy(a2,"late")||fuzzy(a2,"night")||fuzzy(a2,"stay"))score+=1;
-  if(fuzzy(a3,"no label")||fuzzy(a3,"without label")||fuzzy(a3,"unlabeled"))score+=1;
-  if(fuzzy(a4,"chicken"))score+=1;
-  if(fuzzy(a5,"dead"))score+=1;
-  if(a6.length>10)score+=1;
+  // gather answers raw
+  const raw = {
+    q1: document.getElementById('a1').value || '',
+    q2: document.getElementById('a2').value || '',
+    q3: document.getElementById('a3').value || '',
+    q4: document.getElementById('a4').value || '',
+    q5: document.getElementById('a5').value || '',
+    q6: document.getElementById('a6').value || ''
+  };
 
-  document.getElementById('scoredisp').textContent="Score: "+score+" / 6";
-  document.getElementById('percentdisp').textContent=Math.round(score/6*100)+"%";
+  // normalized versions for checks
+  const ans = {};
+  Object.keys(raw).forEach(k => ans[k] = normalize(raw[k]));
+
+  const results = {};
+  let total = 0;
+
+  // Q1: Title scoring
+  (function(){
+    let score = 0;
+    const a = ans.q1;
+    if(a){
+      // exact accepted fuzzy matches
+      for(const t of KEY.q1.accepted){
+        if(fuzzyContains(a, t)){
+          score = 1; break;
+        }
+      }
+      if(score === 0){
+        // count keyword hits (>=2 => full, 1 => half)
+        let kwCount = 0;
+        KEY.q1.keywords.forEach(k => { if(a.includes(k)) kwCount++; });
+        if(kwCount >= 2) score = 1;
+        else if(kwCount === 1) score = 0.5;
+      }
+    }
+    results.q1 = {
+      question: 'Give a suitable title for the passage.',
+      student: raw.q1 || '(no answer)',
+      correct: 'Any title referencing the chickens/tin/test/supper (e.g., "The Dead Chickens", "Dinner Trouble")',
+      score
+    };
+    total += score;
+  })();
+
+  // Q2: Reason for offering supper - needs two parts for full mark
+  (function(){
+    let score = 0;
+    const a = ans.q2;
+    const partA = KEY.q2.parts.stayedLate.some(p => a.includes(p));
+    const partB = KEY.q2.parts.noSignLeaving.some(p => a.includes(p));
+    // fuzzy: allow phrases that imply no sign of leaving or that it's night
+    // if both parts present -> 1
+    if(partA && partB) score = 1;
+    else if(partA || partB) score = 0.5;
+    results.q2 = {
+      question: 'Why did the narrator feel it was necessary to offer the guests supper?',
+      student: raw.q2 || '(no answer)',
+      correct: 'Because the guests stayed late (dusk into night) and showed no sign of wanting to leave.',
+      score
+    };
+    total += score;
+  })();
+
+  // Q3: Unusual about tin
+  (function(){
+    let score = 0;
+    const a = ans.q3;
+    if(a){
+      for(const p of KEY.q3.acceptedPhrases){
+        if(fuzzyContains(a, p) || a.includes(p.split(' ')[0])) { score = 1; break; }
+      }
+    }
+    results.q3 = {
+      question: 'What was unusual about the tin the narrator found in the pantry cupboard?',
+      student: raw.q3 || '(no answer)',
+      correct: 'It was an old tin without a label (unlabeled).',
+      score
+    };
+    total += score;
+  })();
+
+  // Q4: Key instruction re testing the food
+  (function(){
+    let score = 0;
+    const a = ans.q4;
+    if(a){
+      for(const p of KEY.q4.acceptedPhrases){
+        if(fuzzyContains(a, p) || a.includes(p.split(' ')[0])) { score = 1; break; }
+      }
+      // partial credit: mentions testing/see if food bad but not chickens explicitly
+      if(score === 0){
+        if(a.includes('test') || a.includes('see if') || a.includes('see') || a.includes('bad')) score = 0.5;
+      }
+    }
+    results.q4 = {
+      question: 'What key instruction did the narrator give Bahlol regarding testing the food?',
+      student: raw.q4 || '(no answer)',
+      correct: 'To give some of the food to the chickens first to see if the food had gone bad.',
+      score
+    };
+    total += score;
+  })();
+
+  // Q5: What happened to the chickens
+  (function(){
+    let score = 0;
+    const a = ans.q5;
+    if(a){
+      for(const p of KEY.q5.acceptedPhrases){
+        if(fuzzyContains(a, p) || a.includes(p.split(' ')[0])) { score = 1; break; }
+      }
+    }
+    results.q5 = {
+      question: 'What happened to the chickens, according to Bahlol?',
+      student: raw.q5 || '(no answer)',
+      correct: 'The chickens were dead.',
+      score
+    };
+    total += score;
+  })();
+
+  // Q6: Personal reaction (subjective)
+  (function(){
+    let score = 0;
+    const a = raw.q6 || '';
+    const n = normalize(a);
+    if(n){
+      // heuristics for full marks: clear, specific reaction with at least 3 meaningful words/action verbs (call, warn, check, doctor, throw up, sick)
+      const words = n.split(/\s+/).filter(Boolean);
+      const actionWords = ['call','doctor','ambulance','check','vomit','sick','leave','stop','ask','warn','panic','run','alarmed','concern','help','inspect','call','hospital','ask','check','wash','throw','safe','safety'];
+      const hasAction = actionWords.some(w => n.includes(w));
+      if(words.length >= 4 && hasAction) score = 1; // specific, actionable response
+      else score = 0.5; // vague but relevant (e.g., "I would be scared" or "I would worry")
+    }
+    results.q6 = {
+      question: 'If you had just finished eating the supper and heard Bahlol cry out that the chickens were dead, how would you react?',
+      student: raw.q6 || '(no answer)',
+      correct: 'Any reasonable reaction showing alarm/concern and possible action (e.g., ask guests if they felt sick, call a doctor, check food).',
+      score
+    };
+    total += score;
+  })();
+
+  // finalize totals & percentages
+  total = Math.round(total * 100) / 100; // two-decimal precision allowed, though marks are 0,0.5,1
+  const max = 6;
+  const percent = Math.round((total / max) * 100);
+
+  // UI updates
+  document.getElementById('scoredisp').textContent = `Score: ${total} / ${max}`;
+  document.getElementById('percentdisp').textContent = `${percent}%`;
   document.getElementById('afterSubmit').classList.remove('hidden');
+  document.getElementById('submitBtn').disabled = true;
+
+  // store report payload for PDF generation
+  window.__rc_report = {
+    student: { name, class: clas, section, roll },
+    timestamp: new Date().toISOString(),
+    passageTitle: 'Chapter 7: Bahlol',
+    results,
+    total,
+    max,
+    percent
+  };
 }
+
+/* ---------- Reset function ---------- */
 function clearAll(){
-  document.querySelectorAll('textarea,input').forEach(e=>e.value='');
-  document.getElementById('scoredisp').textContent='';
-  document.getElementById('percentdisp').textContent='';
+  if(!confirm('Clear all answers and student info?')) return;
+  document.getElementById('st-name').value = '';
+  document.getElementById('st-class').value = '';
+  document.getElementById('st-section').value = '';
+  document.getElementById('st-roll').value = '';
+  document.getElementById('a1').value = '';
+  document.getElementById('a2').value = '';
+  document.getElementById('a3').value = '';
+  document.getElementById('a4').value = '';
+  document.getElementById('a5').value = '';
+  document.getElementById('a6').value = '';
+  document.getElementById('scoredisp').textContent = '';
+  document.getElementById('percentdisp').textContent = '';
   document.getElementById('afterSubmit').classList.add('hidden');
+  document.getElementById('submitBtn').disabled = false;
+  window.__rc_report = null;
 }
-function downloadPDFReport(){alert("PDF export placeholder — implemented in original template.");}
+
+/* ---------- PDF / REPORT generation ---------- */
+function downloadPDFReport(){
+  const rpt = window.__rc_report;
+  if(!rpt){ alert('Please submit answers first.'); return; }
+
+  // CSS for print-friendly report
+  const css = `
+    body{font-family: "Times New Roman", Georgia, serif; color:#111; margin:18px;}
+    header{display:flex;justify-content:space-between;align-items:flex-start}
+    h1{font-size:20px;margin:0 0 6px 0}
+    .meta{font-size:13px;color:#222;margin-top:6px}
+    .line{height:1px;background:#ddd;margin:10px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{border:1px solid #bbb;padding:8px;font-size:13px;vertical-align:top}
+    th{background:#f3f3f3;font-weight:700}
+    .small{font-size:12px;color:#444}
+    .score{font-size:16px;font-weight:700;color:#333}
+    .footer{font-size:12px;color:#444;margin-top:18px}
+    .key{font-size:13px;color:#111}
+  `;
+
+  // build rows from results (ordered)
+  const order = ['q1','q2','q3','q4','q5','q6'];
+  let rows = '';
+  order.forEach((k, idx) => {
+    const r = rpt.results[k];
+    const markStr = (typeof r.score === 'number') ? String(r.score) : r.score;
+    const resultLabel = (r.score >= 1) ? 'Full' : (r.score > 0 ? 'Partial' : 'None');
+    // Ensure we escape HTML content in student answers and correct text
+    rows += `<tr>
+      <td style="width:6%">${idx+1}</td>
+      <td style="width:36%"><div style="font-weight:700">${escapeHtml(r.question)}</div><div class="small" style="margin-top:6px"><strong>Answer key / Expected:</strong> ${escapeHtml(r.correct)}</div></td>
+      <td style="width:34%">${escapeHtml(r.student)}</td>
+      <td style="width:8%">${markStr}</td>
+      <td style="width:16%">${resultLabel}</td>
+    </tr>`;
+  });
+
+  const html = `
+    <html>
+    <head><meta charset="utf-8"><title>Report - ${escapeHtml(rpt.student.name)}</title><style>${css}</style></head>
+    <body>
+      <header>
+        <div>
+          <h1>Reading Comprehension Practice 2 — Result Report</h1>
+          <div class="meta">Passage: ${escapeHtml(rpt.passageTitle)}</div>
+          <div class="meta">Chapter: 7 — Bahlol</div>
+        </div>
+        <div style="text-align:right">
+          <div class="meta"><strong>Date:</strong> ${new Date(rpt.timestamp).toLocaleString()}</div>
+          <div class="meta"><strong>Generated by:</strong> Auto-Grader</div>
+        </div>
+      </header>
+
+      <div class="line"></div>
+
+      <section>
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start">
+          <div style="flex:1">
+            <div><strong>Name:</strong> ${escapeHtml(rpt.student.name)}</div>
+            <div><strong>Class:</strong> ${escapeHtml(rpt.student.class)} — <strong>Section:</strong> ${escapeHtml(rpt.student.section)}</div>
+            <div><strong>Roll No:</strong> ${escapeHtml(rpt.student.roll)}</div>
+          </div>
+          <div style="text-align:right">
+            <div class="score">Score: ${rpt.total} / ${rpt.max}</div>
+            <div class="small">Percentage: ${rpt.percent}%</div>
+          </div>
+        </div>
+      </section>
+
+      <table aria-label="Answers table">
+        <thead><tr><th>#</th><th>Question & Answer Key</th><th>Student Answer</th><th>Marks</th><th>Result</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+
+      <div class="footer">
+        <p><strong>Teacher notes:</strong> The auto-grader applied concept-based matching and partial-credit rules; ambiguous or long answers may need human review. See below for grading rubric summary.</p>
+
+        <h4>Grading Rubric Summary</h4>
+        <ul>
+          <li><strong>Q1 (Title)</strong> — 1 mark: full for relevant title (keywords or accepted phrases). 0.5 for partially relevant title containing one key idea.</li>
+          <li><strong>Q2 (Reason for offering supper)</strong> — 1 mark: full if student mentions both (a) guests stayed late / dusk → night AND (b) they showed no sign of leaving. 0.5 for one of the two.</li>
+          <li><strong>Q3 (Tin)</strong> — 1 mark: full for stating tin was without a label/unlabeled.</li>
+          <li><strong>Q4 (Testing the food)</strong> — 1 mark: full for instructing to feed/test on chickens first; 0.5 if student mentions testing but not chickens.</li>
+          <li><strong>Q5 (Chickens)</strong> — 1 mark: full for stating the chickens were dead.</li>
+          <li><strong>Q6 (Personal reaction)</strong> — 1 mark: full for clear, specific reaction + action (>=4 words & action verb). 0.5 for vague but relevant reaction.</li>
+        </ul>
+      </div>
+    </body>
+    </html>
+  `;
+
+  // open report in a new tab (user can Print -> Save as PDF)
+  const w = window.open('', '_blank');
+  w.document.open();
+  w.document.write(html);
+  w.document.close();
+
+  // try to trigger print dialog after a short delay (browsers may block auto-print)
+  setTimeout(() => {
+    try {
+      w.focus();
+      w.print();
+    } catch (e) {
+      alert('A new tab has opened with the formal report. Use Print → Save as PDF to download.');
+    }
+  }, 600);
+}
+
+/* ---------- helper: escape HTML ---------- */
+function escapeHtml(str){
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 </script>
 </body>
 </html>
